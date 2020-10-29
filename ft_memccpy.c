@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: default <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/26 05:32:12 by default           #+#    #+#             */
-/*   Updated: 2020/10/29 19:14:16 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/10/29 19:20:25 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/10/29 20:01:43 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	unsigned char *cpy_dest;
 	unsigned char *cpy_src;
@@ -20,6 +20,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	cpy_dest = (unsigned char *)dest;
 	cpy_src = (unsigned char *)src;
 	while (n--)
+	{
+		if (*cpy_src == c)
+			return (cpy_dest + 1);
 		*cpy_dest++ = *cpy_src++;
-	return (dest);
+	}
+	return (NULL);
 }

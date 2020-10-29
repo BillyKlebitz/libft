@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 18:39:43 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/29 18:40:17 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/10/29 21:13:48 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/10/29 21:20:57 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char *ptr;
-	unsigned char sym;
 
 	ptr = (unsigned char *)s;
-	sym = (unsigned char)c;
 	while (n--)
-		*ptr++ = sym;
-	return (s);
+	{
+		if (*ptr == c)
+			return (ptr);
+		ptr++;
+	}
+	return (NULL);
 }

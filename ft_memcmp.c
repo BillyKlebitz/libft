@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 18:39:43 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/29 18:40:17 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/10/29 21:22:00 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/10/29 21:31:19 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, size_t n);
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char *ptr;
-	unsigned char sym;
+	unsigned char *ptr_s1;
+	unsigned char *ptr_s2;
 
-	ptr = (unsigned char *)s;
-	sym = (unsigned char)c;
+	ptr_s1 = (unsigned char *)s1;
+	ptr_s2 = (unsigned char *)s2;
 	while (n--)
-		*ptr++ = sym;
-	return (s);
+	{
+		if (*ptr_s1 != *ptr_s2)
+			return (*ptr_s1 - *ptr_s2);
+		ptr_s1++;
+		ptr_s2++;
+	}
+	return (0);
 }

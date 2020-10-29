@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "ft_atoi.c"
+#include <string.h>
+#include "ft_memcmp.c"
 
 int main(int argc, char *argv[])
 {
-    printf("ft:%d\n",ft_atoi(argv[1]));
-    printf("atoi:%d\n",atoi(argv[1]));
+   printf("ft:%d\n",ft_memcmp(argv[1],argv[2],3));
+    printf("memcmp:%d\n",memcmp(argv[1],argv[2],3));
     return (0);
 }
