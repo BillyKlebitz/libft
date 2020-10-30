@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 15:31:54 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/28 15:41:48 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/10/30 17:54:21 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/10/30 18:12:47 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*ptr;
-	int		res;
+	char	*cp_big;
+	char	*cp_little;
+	char	*res;
+	int		n;
 
-	res = 0;
-	ptr = (char *)s;
-	while (*ptr++)
-		res++;
+	n = len;
+	res = NULL;
+	cp_big = (char *)big;
+	cp_little = (char *)little;
+	while (*cp_big != '\0' && n--)
+	{
+		if (*cp_big == *cp_little)
+		{
+			res = cp_big;
+			while (*cp_big++ == *cp_little++)
+				;
+			if (*cp_little == '\0')
+				return (res);
+		}
+		cp_big++;
+	}
 	return (res);
 }

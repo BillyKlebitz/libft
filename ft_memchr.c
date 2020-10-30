@@ -6,11 +6,11 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 21:13:48 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/29 21:20:57 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/10/30 20:15:01 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *s, int c, size_t n);
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

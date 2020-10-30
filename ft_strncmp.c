@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 15:31:54 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/28 15:41:48 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/10/30 18:30:43 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/10/30 18:30:45 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*ptr;
-	int		res;
+	char	*cp_s1;
+	char	*cp_s2;
+	int		len;
 
-	res = 0;
-	ptr = (char *)s;
-	while (*ptr++)
-		res++;
-	return (res);
+	len = n;
+	cp_s1 = (char *)s1;
+	cp_s2 = (char *)s2;
+	while (len--)
+	{
+		if (*cp_s1 != *cp_s2)
+			return (*cp_s1 - *cp_s2);
+	}
+	return (*cp_s1 - *cp_s2);
 }

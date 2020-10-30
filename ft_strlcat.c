@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 15:31:54 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/28 15:41:48 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/10/30 15:21:36 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/10/30 20:46:39 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char	*ptr;
-	int		res;
+	char		*cpy_dst;
+	const char	*s;
+	size_t		n;
 
-	res = 0;
-	ptr = (char *)s;
-	while (*ptr++)
-		res++;
-	return (res);
+	s = src;
+	cpy_dst = dst;
+	n = size;
+	if (n != 0)
+	{
+		while (*cpy_dst++ != '\0')
+			;
+		while (--n)
+		{
+			if ((*cpy_dst++ = *s++) == '\0')
+				break ;
+		}
+	}
+	if (n == 0)
+	{
+		if (size != 0)
+			*dst = '\0';
+		while (*s++)
+			;
+	}
+	return (s - src - 1);
 }

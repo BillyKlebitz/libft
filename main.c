@@ -1,10 +1,8 @@
+#include "libft.h"
 #include <stdio.h>
-#include <string.h>
-#include "ft_memcmp.c"
+#include <ctype.h>
 
-int main(int argc, char *argv[])
+int main()
 {
-   printf("ft:%d\n",ft_memcmp(argv[1],argv[2],3));
-    printf("memcmp:%d\n",memcmp(argv[1],argv[2],3));
-    return (0);
+	printf("%c",ft_toupper(65));
 }

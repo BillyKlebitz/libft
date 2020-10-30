@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 15:31:54 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/28 15:41:48 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/10/30 16:01:54 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/10/30 16:18:53 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*ptr;
-	int		res;
+	char *ptr;
 
-	res = 0;
 	ptr = (char *)s;
-	while (*ptr++)
-		res++;
-	return (res);
+	while (*ptr++ != '\0')
+	{
+		if (*ptr == c)
+			return (ptr);
+	}
+	return (NULL);
 }
