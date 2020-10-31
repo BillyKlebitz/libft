@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:21:36 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/30 20:46:39 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/10/31 17:18:07 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,17 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 			;
 		while (--n)
 		{
-			if ((*cpy_dst++ = *s++) == '\0')
+			*cpy_dst++ = *s++;
+			if (*s == '\0')
 				break ;
 		}
 	}
 	if (n == 0)
 	{
 		if (size != 0)
-			*dst = '\0';
+			*cpy_dst = '\0';
 		while (*s++)
 			;
 	}
-	return (s - src - 1);
+	return ft_strlen(src) + ft_strlen(dst);
 }

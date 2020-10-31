@@ -6,7 +6,7 @@
 /*   By: default <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 05:32:12 by default           #+#    #+#             */
-/*   Updated: 2020/10/30 22:19:51 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/10/31 13:09:24 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	cpy_dest = (unsigned char *)dest;
 	cpy_src = (unsigned char *)src;
-	while (n-- && cpy_dest && cpy_src)
+	if (dest == NULL && src==NULL)
+		return (dest);
+	while (n--)
 		*cpy_dest++ = *cpy_src++;
 	return (dest);
 }

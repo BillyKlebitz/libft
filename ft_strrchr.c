@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:43:49 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/30 20:45:27 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/10/31 15:06:08 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ char	*ft_strrchr(const char *s, int c)
 
 	res = NULL;
 	ptr = (char *)s;
-	while (*ptr++ != '\0')
+	while (*ptr != '\0')
 	{
 		if (*ptr == c)
 			res = ptr;
+		ptr++;
 	}
+	if (c == 0)
+		res = ptr;
 	return (res);
 }
