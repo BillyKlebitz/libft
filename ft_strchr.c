@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:01:54 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/10/31 15:07:12 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/01 20:15:14 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strchr(const char *s, int c)
 		ptr++;
 	}
 	if (c == 0)
-		return ptr;
-	return NULL;
+		return (ptr);
+	return (NULL);
 }

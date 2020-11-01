@@ -1,13 +1,14 @@
 #include "libft.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
-int main(int argc, char *argv[])
+int main(void)
 {
-    char *big = "abcdefsadasdasd";
-    char *little = "abcdef";
-    size_t max = strlen(big);
-    char *s1 = strnstr(big, little, max);
-    char *s2 = ft_strnstr(big, little, max);
-	printf("%s\n%s\n",s1,s2);
+	int size = 8539;
+
+    void * d1 = ft_calloc(size, sizeof(int));
+    void * d2 = calloc(size, sizeof(int));
+    if (memcmp(d1, d2, size * sizeof(int)))
+		printf("%s","loh");
 }
