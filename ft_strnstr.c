@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:54:21 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/01 20:20:58 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/02 23:18:48 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,15 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	cp_big = big;
 	cp_little = little;
 	n = len;
-	while (1)
+	if (*cp_little == '\0')
+		return (char *)cp_big;
+	while (*cp_big != '\0' && n > 0)
 	{
-		res = (*cp_big == *cp_little || *cp_little == '\0') ? cp_big : NULL;
-		while (*++cp_big == *++cp_little && --n != 0 && *cp_little != '\0')
-			;
-		cp_little = (*cp_little != '\0') ? little : "\0";
-		if (*cp_little == '\0')
-			return ((char *)res);
-		if (*cp_big == '\0' || n == 0)
-			return (NULL);
+		if (ft_strncmp(little, cp_big, ft_strlen(little)) == 0
+			&& n >= ft_strlen(little))
+			return ((char *)cp_big);
 		n--;
 		cp_big++;
 	}
+	return (NULL);
 }
