@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 18:34:28 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/03 16:56:43 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/11/03 15:14:50 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/11/03 15:44:30 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strdup(const char *s)
+char *ft_split(char const *s, char c)
 {
-	const char	*cps;
-	char		*res;
-	char		*cp_res;
+	char *ptr;
+	char *res;
+	int n;
 
-	cps = s;
-	if (!(res = malloc((ft_strlen(s) + 1) * sizeof(const char))))
-		return (NULL);
-	cp_res = res;
-	while (*cps)
-	{
-		ft_memset(cp_res, *cps, 1);
-		cp_res++;
-		cps++;
-	}
-	ft_memset(cp_res, '\0', 1);
-	return (res);
+	n = 0;
+	ptr = s;
+	while (*(ptr+n) != c)
+		n++;
+	res = (char *)malloc(sizeof(char) * n + 1);
+	while(*ptr != c)
+		*res++ = *ptr++;
+	return res;
+
+
 }

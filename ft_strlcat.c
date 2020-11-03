@@ -6,12 +6,11 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:21:36 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/01 20:22:25 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/03 16:40:44 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
