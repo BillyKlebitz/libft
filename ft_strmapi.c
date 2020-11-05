@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 19:18:59 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 16:30:50 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/05 23:56:26 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned
 int, char))
 {
 	char	*res;
-	int		n;
+	size_t	n;
 
 	n = 0;
 	if (!(s && f))

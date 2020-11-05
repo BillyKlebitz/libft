@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 17:03:16 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 17:03:21 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/05 23:55:55 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int		ft_isset(char s1, char const *set)
 static size_t	ft_reslen(char const *s1, char const *set)
 {
 	char			*pt_s1;
-	char			*pt_set;
 	static	size_t	n;
 	int				e;
 
@@ -54,7 +53,6 @@ static size_t	ft_reslen(char const *s1, char const *set)
 
 char			*ft_strtrim(char const *s1, char const *set)
 {
-	char	*set_ptr;
 	char	*pt_s1;
 	char	*ptr_res;
 	char	*res;

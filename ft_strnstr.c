@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:54:21 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/02 23:18:48 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/05 23:55:20 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	const char	*cp_big;
 	const char	*cp_little;
 	size_t		n;
-	const char	*res;
 
 	cp_big = big;
 	cp_little = little;

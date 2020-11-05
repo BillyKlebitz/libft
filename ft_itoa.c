@@ -6,13 +6,13 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 23:28:30 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 16:31:24 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/05 22:50:31 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nlen(int n)
+static int	ft_nlen(int n)
 {
 	int i;
 
@@ -27,7 +27,7 @@ int		ft_nlen(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	*res;
 	int		len;

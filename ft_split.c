@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 16:15:18 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 22:04:19 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/05 22:50:05 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char		*word(char const *s, char c)
 	return (wrd);
 }
 
-void			ft_clearsplit(char **res, int i)
+static void		ft_clearsplit(char **res, int i)
 {
 	while (i)
 	{
