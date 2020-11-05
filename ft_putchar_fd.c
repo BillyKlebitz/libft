@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 14:09:46 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 16:33:38 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/11/04 18:08:35 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/11/05 16:29:46 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t
-	ft_strlcpy(char const *dst, char const *src, size_t dstsize)
+void	ft_putchar_fd(char c, int fd)
 {
-	char			*cpy_dst;
-	const char		*s;
-	size_t			n;
-
-	if (!(dst && src && dst))
-		return (0);
-	if (ft_memcmp(dst, src, 2147483647) == 0)
-		return (0);
-	s = src;
-	cpy_dst = (char *)dst;
-	n = dstsize;
-	if (n != 0)
-		while (--n && (*cpy_dst++ = *s++) != '\0')
-			;
-	if (n == 0)
-	{
-		if (dstsize != 0)
-			*cpy_dst = '\0';
-		while (*s++)
-			;
-	}
-	return (s - src - 1);
+	write(fd, &c, 1);
 }

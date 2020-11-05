@@ -3,7 +3,6 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#include "ft_split.c"
 
 int main(int argc, char *argv[])
 {
@@ -20,12 +19,19 @@ int main(int argc, char *argv[])
     strlcat(s2,"ptra",4);
 	printf("%s\n",s1);
 	printf("%s\n",s2);
-	*/	
-	
-	int i = 1;
-	while(ft_split(" lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')[i-1])
+		
+		
+	int i = 0;
+	while(ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')[i])
 	{	
-		printf("%s",ft_split(" lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')[i-1]);
+		printf("%s\n",ft_split(" lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')[i]);
 		i++;
 	}
+	printf("%c",ft_itoa(20)[2]);
+	int n = 22;
+	*/
+	ft_putnbr_fd(2147483647,0);
+	//atoi("22");
+	//printf("\n%d",atoi("22"));
+	//ft_split(argv[1],' ');
 }

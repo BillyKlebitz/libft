@@ -5,78 +5,69 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 15:14:50 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/04 00:05:20 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/11/05 16:15:18 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/11/05 16:19:38 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static size_t strwrd(char const *s, char c);
-
-static size_t strwrd(char const *s, char c)
+static size_t	wrdcnt(char const *s, char c)
 {
 	size_t n;
-	size_t z;
 
 	n = 0;
-	z = 0;
-	while(s[n] != '\0')
-    {
-		if (s[n] == c)
-        {
-            while(s[n] == c)
-                n++;
-        }
-        if (s[n] != c)
-        {
-			while(s[n] != c)	
-			{	
-				n++;
-				z++;
-			}
+	while (*s != '\0')
+	{
+		if (*s == c)
+			s++;
+		else
+		{
+			n++;
+			while (*s != c && *s != '\0')
+				s++;
 		}
-    }
-	return (z);
+	}
+	return (n);
 }
 
-char **ft_split(char const *s, char c)
+static char		*word(char const *s, char c)
 {
-	char *ptr;
-	char **res;
-	char *str;
-	int n;
-	int z;
+	int		wrdlen;
+	char	*wrd;
 
-	n = 0;
-	z = 0;
-	ptr = (char *)s;
-	res = malloc(sizeof(char *) * (strwrd(s,c) + 1));
-	res[strwrd(s,c)] = "\0";
-	while (*ptr != '\0')
+	if (ft_strrchr(s, c) == NULL)
+		wrdlen = ft_strlen(s) + 1;
+	else
+		wrdlen = ft_strchr(s, c) - s + 1;
+	if (!(wrd = malloc(sizeof(char) * (wrdlen + 1))))
+		return (NULL);
+	ft_strlcpy(wrd, s, wrdlen);
+	wrd[wrdlen] = '\0';
+	return (wrd);
+}
+
+char			**ft_split(char const *s, char c)
+{
+	char	**res;
+	int		wct;
+	int		i;
+
+	i = 0;
+	if (!s || !c)
+		return (NULL);
+	wct = wrdcnt(s, c);
+	if (!(res = malloc(sizeof(char *) * (wct + 1))))
+		return (NULL);
+	while (i < wct)
 	{
-		n = 0;
-		while (*ptr == c && *ptr != '\0')
-			ptr++;
-		if(*ptr == '\0')
-			break;
-		while (ptr[n] != c  && ptr[n] != '\0')
-			n++;
-		str = malloc(sizeof(char) *(n+1));
-		str[n] = '\0';
-		n = 0;
-		while(*ptr != c && *ptr != '\0')
-		{
-			str[n] = *ptr++;
-			n++;	
-		}
-		//str[n] = '\0';
-		res[z] = ft_strdup(str);
-		free(str);
-		z++;
-		if(*ptr != '\0')// && *ptr != '\0')
-			ptr++;
+		while (*s == c)
+			s++;
+		res[i] = word(s, c);
+		s += ft_strlen(res[i]);
+		i++;
 	}
-	return res;
+	res[i] = NULL;
+	return (res);
 }

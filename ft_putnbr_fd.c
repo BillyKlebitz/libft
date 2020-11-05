@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 14:09:46 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 16:33:38 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/11/04 21:03:19 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/11/05 16:27:15 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t
-	ft_strlcpy(char const *dst, char const *src, size_t dstsize)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char			*cpy_dst;
-	const char		*s;
-	size_t			n;
+	char	res[16];
+	int		i;
 
-	if (!(dst && src && dst))
-		return (0);
-	if (ft_memcmp(dst, src, 2147483647) == 0)
-		return (0);
-	s = src;
-	cpy_dst = (char *)dst;
-	n = dstsize;
-	if (n != 0)
-		while (--n && (*cpy_dst++ = *s++) != '\0')
-			;
+	i = 15;
 	if (n == 0)
+		write(fd, "0", 1);
+	if (n == -2147483648)
 	{
-		if (dstsize != 0)
-			*cpy_dst = '\0';
-		while (*s++)
-			;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return (s - src - 1);
+	if (n < 0)
+		write(fd, "-", 1);
+	n = n < 0 ? -1 * n : n;
+	while (n)
+	{
+		res[i] = (n % 10) + '0';
+		n = n / 10;
+		i--;
+	}
+	while (i + 1 < 16)
+	{
+		write(fd, &res[i + 1], 1);
+		i++;
+	}
 }

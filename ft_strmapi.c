@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 14:09:46 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 16:33:38 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/11/04 19:18:59 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/11/05 16:30:50 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t
-	ft_strlcpy(char const *dst, char const *src, size_t dstsize)
+char	*ft_strmapi(char const *s, char (*f)(unsigned
+int, char))
 {
-	char			*cpy_dst;
-	const char		*s;
-	size_t			n;
+	char	*res;
+	int		n;
 
-	if (!(dst && src && dst))
-		return (0);
-	if (ft_memcmp(dst, src, 2147483647) == 0)
-		return (0);
-	s = src;
-	cpy_dst = (char *)dst;
-	n = dstsize;
-	if (n != 0)
-		while (--n && (*cpy_dst++ = *s++) != '\0')
-			;
-	if (n == 0)
+	n = 0;
+	if (!(s && f))
+		return (NULL);
+	if (!(res = malloc(sizeof(char) * ft_strlen(s) + 1)))
+		return (NULL);
+	while (n < ft_strlen(s))
 	{
-		if (dstsize != 0)
-			*cpy_dst = '\0';
-		while (*s++)
-			;
+		res[n] = f(n, s[n]);
+		n++;
 	}
-	return (s - src - 1);
+	res[n] = '\0';
+	return (res);
 }
