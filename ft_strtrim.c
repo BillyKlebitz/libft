@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 20:06:47 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 16:46:52 by suzumaki         ###   ########.fr       */
+/*   Created: 2020/11/05 17:03:16 by suzumaki          #+#    #+#             */
+/*   Updated: 2020/11/05 17:03:21 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int      ft_isset(char s1, char const *set)
+static int		ft_isset(char s1, char const *set)
 {
-    char *pt_set;
+	char *pt_set;
 
-    pt_set = (char *)set;
-    while (*pt_set != '\0')
-    {
-        if (s1 == *pt_set)
-            return (1);
-        pt_set++;
-    }
-    return (0);
+	pt_set = (char *)set;
+	while (*pt_set != '\0')
+	{
+		if (s1 == *pt_set)
+			return (1);
+		pt_set++;
+	}
+	return (0);
 }
 
 static size_t	ft_reslen(char const *s1, char const *set)

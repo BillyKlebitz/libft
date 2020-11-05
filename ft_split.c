@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 16:15:18 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 16:19:38 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/05 22:04:19 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,16 @@ static char		*word(char const *s, char c)
 	return (wrd);
 }
 
+void			ft_clearsplit(char **res, int i)
+{
+	while (i)
+	{
+		free(res[i]);
+		i--;
+	}
+	free(res);
+}
+
 char			**ft_split(char const *s, char c)
 {
 	char	**res;
@@ -64,7 +74,11 @@ char			**ft_split(char const *s, char c)
 	{
 		while (*s == c)
 			s++;
-		res[i] = word(s, c);
+		if (!(res[i] = word(s, c)))
+		{
+			ft_clearsplit(res, i);
+			return (NULL);
+		}
 		s += ft_strlen(res[i]);
 		i++;
 	}

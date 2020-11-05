@@ -30,7 +30,10 @@ int main(int argc, char *argv[])
 	printf("%c",ft_itoa(20)[2]);
 	int n = 22;
 	*/
-	ft_putnbr_fd(2147483647,0);
+	//char *res = malloc(150*sizeof(char));
+	//strlcpy(res,"aaaaaaaa",20);
+	//strlcpy(res,res,ft_strlen(res));
+	printf("%s\n",ft_split("",' ')[0]);
 	//atoi("22");
 	//printf("\n%d",atoi("22"));
 	//ft_split(argv[1],' ');
