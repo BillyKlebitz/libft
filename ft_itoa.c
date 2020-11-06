@@ -6,7 +6,7 @@
 /*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 23:28:30 by suzumaki          #+#    #+#             */
-/*   Updated: 2020/11/05 22:50:31 by suzumaki         ###   ########.fr       */
+/*   Updated: 2020/11/06 18:38:36 by suzumaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ static int	ft_nlen(int n)
 {
 	int i;
 
-	if (n == 0)
-		return (1);
-	i = 0;
+	i = n <= 0 ? 1 : 0;
 	while (n)
 	{
 		i++;
@@ -29,29 +27,27 @@ static int	ft_nlen(int n)
 
 char		*ft_itoa(int n)
 {
-	char	*res;
 	int		len;
 	int		sign;
+	char	*str;
 
-	sign = n >= 0 ? 0 : 1;
-	n = n >= 0 ? n : n * -1;
-	if (n == -2147483648)
-	{
-		if (!(res = (char *)malloc(sizeof(char) * 12)))
-			return (NULL);
-		return (res = ft_memcpy(res, "-2147483648", 11));
-	}
-	len = ft_nlen(n) + sign;
-	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+	len = ft_nlen(n);
+	sign = n < 0 ? -1 : 1;
+	str = (char *)malloc(len + 1);
+	if (!str)
 		return (NULL);
-	res[0] = sign == 0 ? '\0' : '-';
-	res[0] = n == 0 ? '0' : res[0];
-	res[len--] = '\0';
+	str += len;
+	*str-- = '\0';
+	if (!n)
+		*str = '0';
 	while (n)
 	{
-		res[len] = (n % 10) + '0';
+		*str = sign * (n % 10) + 48;
+		if (n > 9 || n < -9)
+			str--;
 		n /= 10;
-		len--;
 	}
-	return (res);
+	if (sign < 0)
+		*--str = '-';
+	return (str);
 }
